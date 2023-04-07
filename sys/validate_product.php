@@ -4,6 +4,17 @@
     $description = $_POST['product-description'];
     $price = $_POST['product-price'];
 
+    if(!$title){
+        $errors[] = 'title is empty';
+    }
+    if(!$price){
+        $errors[] = 'price is empty';
+    }
+    if(!is_dir('images'))
+    {
+        mkdir('images');
+    }
+
     if(empty($errors)) {
         $image = $_FILES['image'] ?? null;
         $imagePath = $product['image'];
